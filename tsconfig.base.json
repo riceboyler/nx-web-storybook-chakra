@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-web/steak-n-eggs": ["libs/steak-n-eggs/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,9 +1,14 @@
 {
   "npmScope": "nx-web",
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -11,12 +16,25 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "Njc3MTEzZTgtZmNiYi00NzdiLTk4OGMtMWNmYTIwNGI5ZThjfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
     }
   },
   "projects": {
-    "nx-web": { "tags": [] },
-    "nx-web-e2e": { "tags": [], "implicitDependencies": ["nx-web"] }
+    "nx-web": {
+      "tags": []
+    },
+    "nx-web-e2e": {
+      "tags": [],
+      "implicitDependencies": ["nx-web"]
+    },
+    "steak-n-eggs": {
+      "tags": []
+    }
   }
 }

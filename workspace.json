@@ -28,14 +28,19 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/nx-web",
             "index": "apps/nx-web/src/index.html",
             "main": "apps/nx-web/src/main.tsx",
             "polyfills": "apps/nx-web/src/polyfills.ts",
             "tsConfig": "apps/nx-web/tsconfig.app.json",
-            "assets": ["apps/nx-web/src/favicon.ico", "apps/nx-web/src/assets"],
+            "assets": [
+              "apps/nx-web/src/favicon.ico",
+              "apps/nx-web/src/assets"
+            ],
             "styles": [],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
@@ -79,12 +84,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/nx-web/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/nx-web/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/nx-web"],
+          "outputs": [
+            "coverage/apps/nx-web"
+          ],
           "options": {
             "jestConfig": "apps/nx-web/jest.config.js",
             "passWithNoTests": true
@@ -113,7 +122,64 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/nx-web-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/nx-web-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "steak-n-eggs": {
+      "root": "libs/steak-n-eggs",
+      "sourceRoot": "libs/steak-n-eggs/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/steak-n-eggs/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/steak-n-eggs"
+          ],
+          "options": {
+            "jestConfig": "libs/steak-n-eggs/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/steak-n-eggs/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/steak-n-eggs",
+            "config": {
+              "configFolder": "libs/steak-n-eggs/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       }
